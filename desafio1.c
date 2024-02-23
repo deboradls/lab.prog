@@ -18,5 +18,7 @@ int main()
 
   printf("O número maior é: %d\n", maior);
 
+  getchar();
+  
   return 0;
 }
