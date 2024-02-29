@@ -1,8 +1,7 @@
 # Desafio 1
 
 ## Sobre o desafio:
-- Solicite 2 números do usuário
-- A saida do seu programa deve retornar qual deles é maior
+O desafio consiste em solicitar dois números ao usuário e o programa deve retornar qual número é o maior.
 
 ## Regras do desafio:
 - NÃO PODE usar os seguintes operadores de comparação: <, >, >=, <=
