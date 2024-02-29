@@ -1,6 +1,6 @@
 # Atividade 1
 ## Questões
-- 1: Construa um código que solicite um número inteiro e imprima o mesmo número com 4 bits deslocados a direita (shift-r)
+- 1: Construa um código que solicite um número inteiro e imprima o mesmo número com 4 bits deslocados a direita (shift-r).
 
 - 2: Construa um código que solicite um número inteiro positivo e imprima 1 caso seja ímpar e 0 caso seja par.
 
