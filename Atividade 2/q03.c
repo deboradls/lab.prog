@@ -2,15 +2,20 @@
 #include <math.h>
 
 // Função para calcular a potência de base elevada a expoente
-double calcularPotencia(int base, int expoente) {
-    if (expoente >= 0) {
+double calcularPotencia(int base, int expoente)
+{
+    if (expoente >= 0)
+    {
         return pow(base, expoente);
-    } else {
+    }
+    else
+    {
         return 1.0 / pow(base, -expoente);
     }
 }
 
-int main() {
+int main()
+{
     int base, expoente;
 
     // Solicita ao usuário para inserir os números inteiros
