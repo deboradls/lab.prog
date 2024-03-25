@@ -21,7 +21,6 @@
 - Toda vez que o consumidor é executado ele consome uma senha. Mas deve alternar em cada chamada, se na ultima ele chamou prioridade, deve chamar uma senha normal, e vice-versa. Caso uma das senhas esteja esgotada deve chamar outra.
 - O programa deve mostrar se está chamando prioridade ou normal
 - Una todos em um único menu:
-
     - 1 para gerar 10 senhas
     - 2 para consumir
     - 3 para mostrar as senhas restantes
