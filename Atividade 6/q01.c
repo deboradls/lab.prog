@@ -21,18 +21,18 @@ int main() {
     InformacaoFinanceira transacao;
     
     // Definindo a data
-    transacao.data.dia = 23;
-    transacao.data.mes = 8;
-    transacao.data.ano = 2024;
+    transacao.data.dia = 25;
+    transacao.data.mes = 03;
+    transacao.data.ano = 2021;
     
     // Definindo o valor
-    transacao.valor = 1500.75;
+    transacao.valor = 535.20;
     
     // Definindo o tipo da transação
-    strcpy(transacao.tipo, "Receita");
+    strcpy(transacao.tipo, "Tesouro Direto");
     
     // Definindo o nome da transação
-    strcpy(transacao.nome, "Salário");
+    strcpy(transacao.nome, "Selic");
 
     // Exibindo as informações da transação
     printf("Data: %02d/%02d/%d\n", transacao.data.dia, transacao.data.mes, transacao.data.ano);
