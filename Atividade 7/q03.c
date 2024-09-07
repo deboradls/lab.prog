@@ -9,27 +9,16 @@ typedef struct {
     int ano;
 } Data;
 
-// Variável global que armazena a data atual
-Data dataAtual = {6, 9, 2024}; // Exemplo de data atual (06 de setembro de 2024)
-
 // Enum para os tipos de investimento
 typedef enum {
     PREFIXADO,
-    IPCA_PLUS,
+    IPCA,
     SELIC,
     CDI
 } TipoInvestimento;
 
-// Função para converter o enum para string
-const char* tipoInvestimentoParaString(TipoInvestimento tipo) {
-    switch(tipo) {
-        case PREFIXADO: return "Prefixado";
-        case IPCA_PLUS: return "IPCA+";
-        case SELIC: return "Selic";
-        case CDI: return "CDI";
-        default: return "Desconhecido";
-    }
-}
+// Variável global que armazena a data atual
+Data dataAtual = {6, 9, 2024}; // Exemplo de data atual (06 de setembro de 2024)
 
 // Definição da struct para a Informação Financeira
 typedef struct {
@@ -39,7 +28,7 @@ typedef struct {
     float valorAplicado;   // Valor inicialmente aplicado na transação
     float taxaJuros;       // Taxa de juros da transação (anual em %)
     float imposto;         // Imposto aplicado sobre a transação
-    TipoInvestimento tipo; // Tipo da transação (enum)
+    TipoInvestimento tipo; // Tipo da transação (usando o enum)
     char nome[50];         // Nome da transação (ex: "Aluguel", "Salário")
 } InformacaoFinanceira;
 
@@ -101,23 +90,22 @@ void atualizarInvestimento(InformacaoFinanceira *investimento) {
     investimento->imposto = investimento->valorBruto * (percentualImposto / 100);
 }
 
-// Função para imprimir o valor bruto total de todas as transações
-void imprimirValorBrutoTotal(Titular titular) {
-    float totalBruto = 0.0;
-    for(int i = 0; i < titular.num_transacoes; i++) {
-        totalBruto += titular.transacoes[i].valorBruto;
+// Função para imprimir o valor bruto total
+float calcularValorBrutoTotal(Titular *titular) {
+    float totalBruto = 0;
+    for (int i = 0; i < titular->num_transacoes; i++) {
+        totalBruto += titular->transacoes[i].valorBruto;
     }
-    printf("Valor Bruto Total: R$%.2f\n", totalBruto);
+    return totalBruto;
 }
 
-// Função para imprimir o valor líquido total de todas as transações
-void imprimirValorLiquidoTotal(Titular titular) {
-    float totalLiquido = 0.0;
-    for(int i = 0; i < titular.num_transacoes; i++) {
-        float valorLiquido = titular.transacoes[i].valorBruto - titular.transacoes[i].imposto;
-        totalLiquido += valorLiquido;
+// Função para imprimir o valor líquido total
+float calcularValorLiquidoTotal(Titular *titular) {
+    float totalLiquido = 0;
+    for (int i = 0; i < titular->num_transacoes; i++) {
+        totalLiquido += (titular->transacoes[i].valorBruto - titular->transacoes[i].imposto);
     }
-    printf("Valor Líquido Total: R$%.2f\n", totalLiquido);
+    return totalLiquido;
 }
 
 int main() {
@@ -143,7 +131,7 @@ int main() {
     transacao1.dataVencimento.ano = 2022;
     transacao1.valorAplicado = 500.00;
     transacao1.taxaJuros = 7.5;
-    transacao1.tipo = SELIC; // Usando o enum para tipo
+    transacao1.tipo = SELIC;
     strcpy(transacao1.nome, "Selic");
     
     titular.transacoes[titular.num_transacoes++] = transacao1;
@@ -161,7 +149,7 @@ int main() {
     transacao2.dataVencimento.ano = 2023;
     transacao2.valorAplicado = 100.00;
     transacao2.taxaJuros = 6.0;
-    transacao2.tipo = CDI; // Usando o enum para tipo
+    transacao2.tipo = CDI;
     strcpy(transacao2.nome, "LCA agro");
     
     titular.transacoes[titular.num_transacoes++] = transacao2;
@@ -181,13 +169,13 @@ int main() {
         printf("Taxa de Juros: %.2f%%\n", t.taxaJuros);
         printf("Imposto: R$%.2f\n", t.imposto);
         printf("Valor Bruto: R$%.2f\n", t.valorBruto);
-        printf("Tipo: %s\n", tipoInvestimentoParaString(t.tipo)); // Usando a função para converter enum para string
+        printf("Tipo: %d\n", t.tipo);  // Exibe o valor do enum (Prefixado=0, IPCA+=1, etc.)
         printf("Nome: %s\n\n", t.nome);
     }
-    
-    // Exibindo os totais
-    imprimirValorBrutoTotal(titular);
-    imprimirValorLiquidoTotal(titular);
+
+    // Calculando e exibindo o valor bruto e líquido total
+    printf("Valor Bruto Total: R$%.2f\n", calcularValorBrutoTotal(&titular));
+    printf("Valor Líquido Total: R$%.2f\n", calcularValorLiquidoTotal(&titular));
     
     return 0;
 }
