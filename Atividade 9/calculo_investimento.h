@@ -16,4 +16,6 @@ int calcularDiferencaDias(const char *dataInicial, const char *dataFinal);
 // Função para calcular juros compostos e atualizar o valor bruto e imposto
 void atualizarInvestimento(DadosFinanceiros *dados);
 
+
+
 #endif

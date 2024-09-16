@@ -69,4 +69,13 @@ void agruparPorTipoOrdenar(Titular *titular);
 // Função para converter data de dd/mm/aaaa para aaaammdd (para fins de comparação)
 int converterData(const char *data);
 
+// Função para inserir novos investimentos
+void inserirInvestimentos(Titular *titular);
+
+// Função para editar um investimento
+void editarInvestimento(Titular *titular);
+
+// Função para deletar um investimento
+void deletarInvestimento(Titular *titular);
+
 #endif
