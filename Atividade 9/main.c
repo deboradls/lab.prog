@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 #include <time.h> // Biblioteca para lidar com datas
 #include <math.h> // Biblioteca para função pow
 
 #include "calculo_investimento.h"
 #include "gerenciamento_investimento.h"
+#include "persistencia.h"
 
 char dataAtual[11] = "16/09/2024";
 
@@ -41,6 +43,8 @@ void submenuAgrupamento(Titular *titular)
 
 int main()
 {
+    setlocale(LC_ALL,"Portuguese_Brasil.1252");
+
     Titular titular;
     titular.num_investimentos = 0;
     titular.investimentos = NULL;
@@ -48,6 +52,8 @@ int main()
     // Solicitar o nome do titular
     perguntarNomeTitular(&titular);
 
+    // Carregar dados de persistência no início
+    carregarDados(&titular);
     int opcao;
 
     do
@@ -100,6 +106,7 @@ int main()
             deletarInvestimento(&titular); // Chama a função de deletar
             break;
         case 0:
+            salvarDados(&titular); // Salvar dados de persistência antes de sair
             printf("Saindo...\n");
             break;
         default:

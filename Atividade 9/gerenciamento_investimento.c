@@ -59,7 +59,8 @@ void perguntarDadosFinanceiros(DadosFinanceiros *dados)
 }
 
 // Função para perguntar o nome do titular
-void perguntarNomeTitular(Titular *titular) {
+void perguntarNomeTitular(Titular *titular)
+{
     printf("Informe o nome do titular: ");
     scanf(" %[^\n]s", titular->titular); // Permite ler string com espaços
 }
@@ -147,8 +148,10 @@ void inserirInvestimentos(Titular *titular)
 }
 
 // Função para editar um investimento
-void editarInvestimento(Titular *titular) {
-    if (titular->num_investimentos == 0) {
+void editarInvestimento(Titular *titular)
+{
+    if (titular->num_investimentos == 0)
+    {
         printf("Nenhum investimento para editar.\n");
         return;
     }
@@ -156,8 +159,9 @@ void editarInvestimento(Titular *titular) {
     int indice;
     printf("Informe o número do investimento que deseja editar (1 a %d): ", titular->num_investimentos);
     scanf("%d", &indice);
-    
-    if (indice < 1 || indice > titular->num_investimentos) {
+
+    if (indice < 1 || indice > titular->num_investimentos)
+    {
         printf("Investimento inválido.\n");
         return;
     }
@@ -167,8 +171,10 @@ void editarInvestimento(Titular *titular) {
 }
 
 // Função para deletar um investimento
-void deletarInvestimento(Titular *titular) {
-    if (titular->num_investimentos == 0) {
+void deletarInvestimento(Titular *titular)
+{
+    if (titular->num_investimentos == 0)
+    {
         printf("Nenhum investimento para deletar.\n");
         return;
     }
@@ -176,13 +182,15 @@ void deletarInvestimento(Titular *titular) {
     int indice;
     printf("Informe o número do investimento que deseja deletar (1 a %d): ", titular->num_investimentos);
     scanf("%d", &indice);
-    
-    if (indice < 1 || indice > titular->num_investimentos) {
+
+    if (indice < 1 || indice > titular->num_investimentos)
+    {
         printf("Investimento inválido.\n");
         return;
     }
 
-    for (int i = indice - 1; i < titular->num_investimentos - 1; i++) {
+    for (int i = indice - 1; i < titular->num_investimentos - 1; i++)
+    {
         titular->investimentos[i] = titular->investimentos[i + 1];
     }
 
