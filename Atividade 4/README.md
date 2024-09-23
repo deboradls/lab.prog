@@ -11,10 +11,10 @@
 
 ## Questão 02
 - Implemente um gerador de senha de guichê
-- Toda vez que a função for executada vocês devem gerar 10 senhas para clientes e devem possuir rotulação
+- Toda vez que a função for executada vocês devem gerar 10 senhas para clientes e devem possuir rotulação.
 - Percorra as senhas uma a uma e rotule como prioridade ou normal
-- A rotulação deve ter 67%  de ocorrer normal e 33% de ocorrer prioridade
-- Mostre que o gerador é capaz de gerar números de formas assimétricas (contador)
+- A rotulação deve ter 67%  de ocorrer normal e 33% de ocorrer prioridade.
+- Mostre que o gerador é capaz de gerar números de formas assimétricas (contador).
 
 ## Questão 03
 - Implemente o consumidor de senhas geradas
