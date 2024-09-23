@@ -43,8 +43,6 @@ void submenuAgrupamento(Titular *titular)
 
 int main()
 {
-    setlocale(LC_ALL,"Portuguese_Brasil.1252");
-
     Titular titular;
     titular.num_investimentos = 0;
     titular.investimentos = NULL;
@@ -64,8 +62,8 @@ int main()
         printf("3 - Atualizar valor bruto de um investimento\n");
         printf("4 - Agrupar e ordenar investimentos\n");
         printf("5 - Imprimir valor bruto e líquido\n");
-        printf("6 - Editar investimento\n");  // Nova opção para editar
-        printf("7 - Deletar investimento\n"); // Nova opção para deletar
+        printf("6 - Editar investimento\n");
+        printf("7 - Deletar investimento\n");
         printf("0 - Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
