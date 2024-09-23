@@ -7,4 +7,4 @@ Implemente um programa que solicite alguns dados do usuário:
 - Não podem utilizar biblioteca <string.h>
 
 ## QUESTÃO 2
-Receba um texto do usuário e imprima UMA das palavras ao contrário
+Receba um texto do usuário e imprima UMA das palavras ao contrário.
